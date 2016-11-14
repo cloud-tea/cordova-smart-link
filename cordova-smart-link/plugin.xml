@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.cloudtea.smartlink" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-smart-link</name>
+    <AUTHOR>zjhiphop</AUTHOR>
+    <js-module name="cordova-smart-link" src="www/cordova-smart-link.js">
+        <clobbers target="cordova.plugins.cordova-smart-link" />
+    </js-module>
+</plugin>
