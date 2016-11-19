@@ -13,6 +13,11 @@
 }
 
 - (void)coolMethod:(CDVInvokedUrlCommand*)command;
+- (void) getSSID:(CDVInvokedUrlCommand*)command;
+- (void)savePswd:(CDVInvokedUrlCommand*)command;
+- (NSString *)getspwdByssid:(NSString * )mssid;
+- (void)connect:(CDVInvokedUrlCommand*)command;
+
 @end
 
 @implementation SmartLink
@@ -43,20 +48,27 @@
 	BOOL wifiOK= FALSE;
     NSDictionary *ifs;
     NSString *ssid;
+    CDVPluginResult* pluginResult = nil;
 
 	if (!wifiOK)
     {
         ifs = [self fetchSSIDInfo];
         ssid = [ifs objectForKey:@"SSID"];
+        
+        NSLog(@"SSID是： %@", ssid);
+        
         if (ssid!= nil)
         {
             wifiOK= TRUE;
-            [self.commandDelegate sendPluginResult:ssid callbackId:command.callbackId];
+        
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssid];
+            
+        } else {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
         }
-        else
-        {
-            [self.commandDelegate sendPluginResult:ssid callbackId:command.callbackId];
-        }
+        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        
     }
 
 }

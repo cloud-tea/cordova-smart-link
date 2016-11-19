@@ -34,7 +34,31 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        alert(cordova.plugins.SmartLink.coolMethod('test'));
+        // alert(cordova.plugins.SmartLink.coolMethod('test'));
+
+        // dom events 
+        var $ssid = document.querySelector('[name="ssid"]');
+        var $pass = document.querySelector('[name="pass"]');
+        var $connectBtn = document.getElementById('fn-connect');
+
+        cordova.plugins.SmartLink.getSSID(null, function(result) {
+            $ssid.value = result;
+        }, function(error) {
+            alert(error);
+        });
+
+        $connectBtn.addEventListener('click', function() {
+
+            cordova.plugins.SmartLink.connect({
+                wifiName: $ssid.value,
+                wifiPass: $pass.value
+            }, function(result) {
+                alert(result);
+            }, function(error) {
+                alert(error);
+            })
+        }, false);
+        
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

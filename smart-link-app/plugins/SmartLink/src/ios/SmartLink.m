@@ -13,11 +13,16 @@
 }
 
 - (void)coolMethod:(CDVInvokedUrlCommand*)command;
+- (void) getSSID:(CDVInvokedUrlCommand*)command;
+- (void)savePswd:(CDVInvokedUrlCommand*)command;
+- (NSString *)getspwdByssid:(NSString * )mssid;
+- (void)connect:(CDVInvokedUrlCommand*)command;
+
 @end
 
 @implementation SmartLink
 
-- (void)pluginInitialize: 
+- (void)pluginInitialize
 {
     // Do any additional setup after loading the view, typically from a nib.
     smtlk = [HFSmartLink shareInstence];
@@ -79,8 +84,6 @@
 	NSString * ssidStr= [params objectForKey:@"wifiName"];
     NSString * pswdStr = [params objectForKey:@"wifiPass"];
     
-    [self savePswd];
-    self.progress.progress = 0.0;
     if(!isconnecting){
         isconnecting = true;
 
@@ -88,7 +91,7 @@
     	[self.commandDelegate runInBackground:^{
 	        [smtlk startWithSSID:ssidStr Key:pswdStr withV3x:true
 	                processblock: ^(NSInteger pro) {
-	                    self.progress.progress = (float)(pro)/100.0;
+	                    // todo: in progress
 	                } successBlock:^(HFSmartLinkDeviceInfo *dev) {
 	                	[self.commandDelegate sendPluginResult:[NSString stringWithFormat:@"{status:1, mac: '%@', ip: '%@'}",dev.mac,dev.ip] callbackId:command.callbackId];
 	                } failBlock:^(NSString *failmsg) {
@@ -111,6 +114,14 @@
     }
 
 }
+
+
+-(void)showAlertWithMsg:(NSString *)msg
+                  title:(NSString*)title{
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
+    [alert show];
+}
+
 
 - (void)coolMethod:(CDVInvokedUrlCommand*)command
 {

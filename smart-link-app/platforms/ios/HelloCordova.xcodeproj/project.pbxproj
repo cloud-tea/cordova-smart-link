@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -13,8 +12,8 @@
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
-		BCCE93AEE99742C089C4A111 /* libsmartlinklib_7x.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD152B1F5B59484E97BFAC6A /* libsmartlinklib_7x.a */; };
-		FF4511B58C9F4DF3A17C327A /* SmartLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B9D9C5D9B24F9A85029111 /* SmartLink.m */; };
+		5D02EFD741224B23BA97EEA4 /* SmartLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 885C86545220471AB3EFE714 /* SmartLink.m */; };
+		5BB5EA617F9149F0B62AF372 /* libsmartlinklib_7x.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 524962D836D24846A91F6486 /* libsmartlinklib_7x.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,16 +48,16 @@
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* HelloCordova-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HelloCordova-Prefix.pch"; sourceTree = "<group>"; };
-		423FAA05CE1B4E989A6D0EE8 /* HFSmartLink.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = HFSmartLink.h; path = SmartLink/HFSmartLink.h; sourceTree = "<group>"; };
-		76B9D9C5D9B24F9A85029111 /* SmartLink.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = SmartLink.m; path = SmartLink/SmartLink.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* HelloCordova-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "HelloCordova-Info.plist"; path = "HelloCordova/HelloCordova-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
-		C737A79307C14C8C973B1549 /* HFSmartLinkDeviceInfo.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = HFSmartLinkDeviceInfo.h; path = SmartLink/HFSmartLinkDeviceInfo.h; sourceTree = "<group>"; };
-		CD152B1F5B59484E97BFAC6A /* libsmartlinklib_7x.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; name = libsmartlinklib_7x.a; path = HelloCordova/Plugins/SmartLink/libsmartlinklib_7x.a; sourceTree = "<group>"; };
-		EA708D1B3D7445E9BE5F844F /* smartlinklib_7x.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = smartlinklib_7x.h; path = SmartLink/smartlinklib_7x.h; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloCordova/config.xml; sourceTree = "<group>"; };
+		885C86545220471AB3EFE714 /* SmartLink.m */ = {isa = PBXFileReference; name = "SmartLink.m"; path = "SmartLink/SmartLink.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		524962D836D24846A91F6486 /* libsmartlinklib_7x.a */ = {isa = PBXFileReference; name = "libsmartlinklib_7x.a"; path = "HelloCordova/Plugins/SmartLink/libsmartlinklib_7x.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		418DDDDBF3A5499C86B55EFC /* HFSmartLink.h */ = {isa = PBXFileReference; name = "HFSmartLink.h"; path = "SmartLink/HFSmartLink.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		53765904F2514A9D85BFDF33 /* HFSmartLinkDeviceInfo.h */ = {isa = PBXFileReference; name = "HFSmartLinkDeviceInfo.h"; path = "SmartLink/HFSmartLinkDeviceInfo.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		A7987A2DA67D43FDB9377BEF /* smartlinklib_7x.h */ = {isa = PBXFileReference; name = "smartlinklib_7x.h"; path = "SmartLink/smartlinklib_7x.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
-				BCCE93AEE99742C089C4A111 /* libsmartlinklib_7x.a in Frameworks */,
+				5BB5EA617F9149F0B62AF372 /* libsmartlinklib_7x.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +136,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CD152B1F5B59484E97BFAC6A /* libsmartlinklib_7x.a */,
+				524962D836D24846A91F6486 /* libsmartlinklib_7x.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,10 +162,10 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				76B9D9C5D9B24F9A85029111 /* SmartLink.m */,
-				423FAA05CE1B4E989A6D0EE8 /* HFSmartLink.h */,
-				C737A79307C14C8C973B1549 /* HFSmartLinkDeviceInfo.h */,
-				EA708D1B3D7445E9BE5F844F /* smartlinklib_7x.h */,
+				885C86545220471AB3EFE714 /* SmartLink.m */,
+				418DDDDBF3A5499C86B55EFC /* HFSmartLink.h */,
+				53765904F2514A9D85BFDF33 /* HFSmartLinkDeviceInfo.h */,
+				A7987A2DA67D43FDB9377BEF /* smartlinklib_7x.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -213,6 +212,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = FNT8C9922U;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -286,7 +286,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				FF4511B58C9F4DF3A17C327A /* SmartLink.m in Sources */,
+				5D02EFD741224B23BA97EEA4 /* SmartLink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +310,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = FNT8C9922U;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -319,13 +320,16 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "HelloCordova/HelloCordova-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/HelloCordova/Plugins/SmartLink\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.hk.ddg;
 				PRODUCT_NAME = HelloCordova;
+				PROVISIONING_PROFILE = "bf73a859-2bfe-49da-a1f1-00f99e1d0621";
+				PROVISIONING_PROFILE_SPECIFIER = Beta;
 			};
 			name = Debug;
 		};
@@ -338,6 +342,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = FNT8C9922U;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -345,12 +350,15 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "HelloCordova/HelloCordova-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/HelloCordova/Plugins/SmartLink\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.hk.ddg;
 				PRODUCT_NAME = HelloCordova;
+				PROVISIONING_PROFILE = "bf73a859-2bfe-49da-a1f1-00f99e1d0621";
+				PROVISIONING_PROFILE_SPECIFIER = Beta;
 			};
 			name = Release;
 		};
