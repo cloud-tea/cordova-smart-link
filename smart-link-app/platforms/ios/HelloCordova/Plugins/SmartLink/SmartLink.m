@@ -90,6 +90,7 @@
     NSDictionary *params = [command.arguments objectAtIndex:0];
     NSString * ssidStr= [params objectForKey:@"wifiName"];
     NSString * pswdStr = [params objectForKey:@"wifiPass"];
+
     
     if(!isconnecting){
         isconnecting = true;
@@ -100,10 +101,20 @@
                     processblock: ^(NSInteger pro) {
                         // todo: in progress
                     } successBlock:^(HFSmartLinkDeviceInfo *dev) {
-                        [self.commandDelegate sendPluginResult:[NSString stringWithFormat:@"{status:1, mac: '%@', ip: '%@'}",dev.mac,dev.ip] callbackId:command.callbackId];
-                    } failBlock:^(NSString *failmsg) {
+                        CDVPluginResult* pluginResult = [CDVPluginResult
+                                        resultWithStatus: CDVCommandStatus_OK
+                                        messageAsString: [NSString stringWithFormat:@"{status:1, mac: '%@', ip: '%@'}",dev.mac,dev.ip]
+                                        ];
                         
-                        [self.commandDelegate sendPluginResult:[NSString stringWithFormat:@"{status:0, error: '%@'}", failmsg] callbackId:command.callbackId];
+                        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+                    } failBlock:^(NSString *failmsg) {
+                    
+                        CDVPluginResult* pluginResult = [CDVPluginResult
+                                                         resultWithStatus: CDVCommandStatus_ERROR
+                                                         messageAsString: [NSString stringWithFormat:@"{status:0, error: '%@'}", failmsg]
+                                                         ];
+                         
+                        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 
                     } endBlock:^(NSDictionary *deviceDic) {
                         isconnecting  = false;
