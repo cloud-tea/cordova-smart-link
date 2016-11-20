@@ -45,30 +45,37 @@
 }
 
 - (void) getSSID:(CDVInvokedUrlCommand*)command {
-	BOOL wifiOK= FALSE;
+    BOOL wifiOK= FALSE;
     NSDictionary *ifs;
     NSString *ssid;
+    CDVPluginResult* pluginResult = nil;
 
-	if (!wifiOK)
+    if (!wifiOK)
     {
         ifs = [self fetchSSIDInfo];
         ssid = [ifs objectForKey:@"SSID"];
+        
+        NSLog(@"SSID是： %@", ssid);
+        
         if (ssid!= nil)
         {
             wifiOK= TRUE;
-            [self.commandDelegate sendPluginResult:ssid callbackId:command.callbackId];
+        
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssid];
+            
+        } else {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
         }
-        else
-        {
-            [self.commandDelegate sendPluginResult:ssid callbackId:command.callbackId];
-        }
+        
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        
     }
 
 }
 
 
 - (void)savePswd:(CDVInvokedUrlCommand*)command {
-	NSDictionary *params = [command.arguments objectAtIndex:0];
+    NSDictionary *params = [command.arguments objectAtIndex:0];
 
     NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
     [def setObject:[params objectForKey:@"wifiPass"] forKey:[params objectForKey:@"wifiName"]];
@@ -80,28 +87,28 @@
 }
 
 - (void)connect:(CDVInvokedUrlCommand*)command {
-	NSDictionary *params = [command.arguments objectAtIndex:0];
-	NSString * ssidStr= [params objectForKey:@"wifiName"];
+    NSDictionary *params = [command.arguments objectAtIndex:0];
+    NSString * ssidStr= [params objectForKey:@"wifiName"];
     NSString * pswdStr = [params objectForKey:@"wifiPass"];
     
     if(!isconnecting){
         isconnecting = true;
 
-    	// Check command.arguments here.
-    	[self.commandDelegate runInBackground:^{
-	        [smtlk startWithSSID:ssidStr Key:pswdStr withV3x:true
-	                processblock: ^(NSInteger pro) {
-	                    // todo: in progress
-	                } successBlock:^(HFSmartLinkDeviceInfo *dev) {
-	                	[self.commandDelegate sendPluginResult:[NSString stringWithFormat:@"{status:1, mac: '%@', ip: '%@'}",dev.mac,dev.ip] callbackId:command.callbackId];
-	                } failBlock:^(NSString *failmsg) {
-	                    
-	                	[self.commandDelegate sendPluginResult:[NSString stringWithFormat:@"{status:0, error: '%@'}", failmsg] callbackId:command.callbackId];
+        // Check command.arguments here.
+        [self.commandDelegate runInBackground:^{
+            [smtlk startWithSSID:ssidStr Key:pswdStr withV3x:true
+                    processblock: ^(NSInteger pro) {
+                        // todo: in progress
+                    } successBlock:^(HFSmartLinkDeviceInfo *dev) {
+                        [self.commandDelegate sendPluginResult:[NSString stringWithFormat:@"{status:1, mac: '%@', ip: '%@'}",dev.mac,dev.ip] callbackId:command.callbackId];
+                    } failBlock:^(NSString *failmsg) {
+                        
+                        [self.commandDelegate sendPluginResult:[NSString stringWithFormat:@"{status:0, error: '%@'}", failmsg] callbackId:command.callbackId];
 
-	                } endBlock:^(NSDictionary *deviceDic) {
-	                    isconnecting  = false;
-	                }];
-	    }];
+                    } endBlock:^(NSDictionary *deviceDic) {
+                        isconnecting  = false;
+                    }];
+        }];
     }else{
         [smtlk stopWithBlock:^(NSString *stopMsg, BOOL isOk) {
             if(isOk){

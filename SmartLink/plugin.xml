@@ -10,8 +10,15 @@
 				<param name="android-package" value="SmartLink.SmartLink"/>
 			</feature>
 		</config-file>
-		<config-file parent="/*" target="AndroidManifest.xml"/>
+		<config-file parent="/*" target="AndroidManifest.xml">
+		    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+		    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+		    <uses-permission android:name="android.permission.INTERNET" />
+		</config-file>
+		
 		<source-file src="src/android/SmartLink.java" target-dir="src/SmartLink"/>
+		<source-file src="src/android/hiflying-iots-android-smartlink-7.0.3.jar" target-dir="libs/" />
+		<framework src="com.android.support:support-v4:23.3.0+" />
 	</platform>
 	<platform name="ios">
 		<config-file parent="/*" target="config.xml">
@@ -22,7 +29,6 @@
 		</config-file>
 		<source-file src="src/ios/SmartLink.m"/>
 		<source-file src="src/ios/libsmartlinklib_7x.a" framework="true" />
-
 
 		<header-file src="src/ios/HFSmartLink.h"></header-file>
 		<header-file src="src/ios/HFSmartLinkDeviceInfo.h"></header-file>

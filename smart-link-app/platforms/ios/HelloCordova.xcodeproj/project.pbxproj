@@ -12,8 +12,8 @@
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
-		5D02EFD741224B23BA97EEA4 /* SmartLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 885C86545220471AB3EFE714 /* SmartLink.m */; };
-		5BB5EA617F9149F0B62AF372 /* libsmartlinklib_7x.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 524962D836D24846A91F6486 /* libsmartlinklib_7x.a */; };
+		AB70B0117A8D4E1AA4B00C87 /* SmartLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 554B833CB645462B81FB784E /* SmartLink.m */; };
+		C806EB28C42D42EC963671E3 /* libsmartlinklib_7x.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2FA76998FD4E1F82AAC7CD /* libsmartlinklib_7x.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +53,11 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloCordova/config.xml; sourceTree = "<group>"; };
-		885C86545220471AB3EFE714 /* SmartLink.m */ = {isa = PBXFileReference; name = "SmartLink.m"; path = "SmartLink/SmartLink.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		524962D836D24846A91F6486 /* libsmartlinklib_7x.a */ = {isa = PBXFileReference; name = "libsmartlinklib_7x.a"; path = "HelloCordova/Plugins/SmartLink/libsmartlinklib_7x.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		418DDDDBF3A5499C86B55EFC /* HFSmartLink.h */ = {isa = PBXFileReference; name = "HFSmartLink.h"; path = "SmartLink/HFSmartLink.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		53765904F2514A9D85BFDF33 /* HFSmartLinkDeviceInfo.h */ = {isa = PBXFileReference; name = "HFSmartLinkDeviceInfo.h"; path = "SmartLink/HFSmartLinkDeviceInfo.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		A7987A2DA67D43FDB9377BEF /* smartlinklib_7x.h */ = {isa = PBXFileReference; name = "smartlinklib_7x.h"; path = "SmartLink/smartlinklib_7x.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		554B833CB645462B81FB784E /* SmartLink.m */ = {isa = PBXFileReference; name = "SmartLink.m"; path = "SmartLink/SmartLink.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		2D2FA76998FD4E1F82AAC7CD /* libsmartlinklib_7x.a */ = {isa = PBXFileReference; name = "libsmartlinklib_7x.a"; path = "HelloCordova/Plugins/SmartLink/libsmartlinklib_7x.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		A2567ABCD4084F9A973001AB /* HFSmartLink.h */ = {isa = PBXFileReference; name = "HFSmartLink.h"; path = "SmartLink/HFSmartLink.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		1705100ED4454422B83452E9 /* HFSmartLinkDeviceInfo.h */ = {isa = PBXFileReference; name = "HFSmartLinkDeviceInfo.h"; path = "SmartLink/HFSmartLinkDeviceInfo.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		71C6B4B37E0E4074A7A601D9 /* smartlinklib_7x.h */ = {isa = PBXFileReference; name = "smartlinklib_7x.h"; path = "SmartLink/smartlinklib_7x.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
-				5BB5EA617F9149F0B62AF372 /* libsmartlinklib_7x.a in Frameworks */,
+				C806EB28C42D42EC963671E3 /* libsmartlinklib_7x.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +136,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				524962D836D24846A91F6486 /* libsmartlinklib_7x.a */,
+				2D2FA76998FD4E1F82AAC7CD /* libsmartlinklib_7x.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -162,10 +162,10 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				885C86545220471AB3EFE714 /* SmartLink.m */,
-				418DDDDBF3A5499C86B55EFC /* HFSmartLink.h */,
-				53765904F2514A9D85BFDF33 /* HFSmartLinkDeviceInfo.h */,
-				A7987A2DA67D43FDB9377BEF /* smartlinklib_7x.h */,
+				554B833CB645462B81FB784E /* SmartLink.m */,
+				A2567ABCD4084F9A973001AB /* HFSmartLink.h */,
+				1705100ED4454422B83452E9 /* HFSmartLinkDeviceInfo.h */,
+				71C6B4B37E0E4074A7A601D9 /* smartlinklib_7x.h */,
 			);
 			name = Plugins;
 			path = HelloCordova/Plugins;
@@ -286,7 +286,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				5D02EFD741224B23BA97EEA4 /* SmartLink.m in Sources */,
+				AB70B0117A8D4E1AA4B00C87 /* SmartLink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
