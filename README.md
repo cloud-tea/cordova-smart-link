@@ -2,5 +2,5 @@
 
 ### install
 ```
-cordova plugin add https://git.coding.net/zjhiphop/cordova-smart-link.git
+cordova plugin add https://github.com/zjhiphop/cordova-smart-link
 ```
