@@ -49,7 +49,7 @@
     NSDictionary *ifs;
     NSString *ssid;
     CDVPluginResult* pluginResult = nil;
-
+    
     if (!wifiOK)
     {
         ifs = [self fetchSSIDInfo];
@@ -60,7 +60,7 @@
         if (ssid!= nil)
         {
             wifiOK= TRUE;
-        
+            
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ssid];
             
         } else {
@@ -70,13 +70,13 @@
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         
     }
-
+    
 }
 
 
 - (void)savePswd:(CDVInvokedUrlCommand*)command {
     NSDictionary *params = [command.arguments objectAtIndex:0];
-
+    
     NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
     [def setObject:[params objectForKey:@"wifiPass"] forKey:[params objectForKey:@"wifiName"]];
 }
@@ -90,11 +90,11 @@
     NSDictionary *params = [command.arguments objectAtIndex:0];
     NSString * ssidStr= [params objectForKey:@"wifiName"];
     NSString * pswdStr = [params objectForKey:@"wifiPass"];
-
+    
     
     if(!isconnecting){
         isconnecting = true;
-
+        
         // Check command.arguments here.
         [self.commandDelegate runInBackground:^{
             [smtlk startWithSSID:ssidStr Key:pswdStr withV3x:true
@@ -102,20 +102,20 @@
                         // todo: in progress
                     } successBlock:^(HFSmartLinkDeviceInfo *dev) {
                         CDVPluginResult* pluginResult = [CDVPluginResult
-                                        resultWithStatus: CDVCommandStatus_OK
-                                        messageAsString: [NSString stringWithFormat:@"{status:1, mac: '%@', ip: '%@'}",dev.mac,dev.ip]
-                                        ];
+                                                         resultWithStatus: CDVCommandStatus_OK
+                                                         messageAsString: [NSString stringWithFormat:@"%@$%@}",dev.mac,dev.ip]
+                                                         ];
                         
                         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
                     } failBlock:^(NSString *failmsg) {
-                    
+                        
                         CDVPluginResult* pluginResult = [CDVPluginResult
                                                          resultWithStatus: CDVCommandStatus_ERROR
-                                                         messageAsString: [NSString stringWithFormat:@"{status:0, error: '%@'}", failmsg]
+                                                         messageAsString: [NSString stringWithFormat:@"%@", failmsg]
                                                          ];
-                         
+                        
                         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-
+                        
                     } endBlock:^(NSDictionary *deviceDic) {
                         isconnecting  = false;
                     }];
@@ -130,7 +130,7 @@
             }
         }];
     }
-
+    
 }
 
 
@@ -145,13 +145,13 @@
 {
     CDVPluginResult* pluginResult = nil;
     NSString* echo = [command.arguments objectAtIndex:0];
-
+    
     if (echo != nil && [echo length] > 0) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
     }
-
+    
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
