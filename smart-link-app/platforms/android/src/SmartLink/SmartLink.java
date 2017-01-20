@@ -170,8 +170,12 @@ public class SmartLink extends CordovaPlugin implements OnSmartLinkListener {
                 Log.w(TAG, MODUE_TOUND +  module.getMac() + " " + module.getIp());
 
                 callbackCtx.success(
-                    String.format("{status:1, mac: '%s', ip: '%s'}", module.getMac(), module.getIp())
+                    String.format("%s$%s", module.getMac(), module.getIp())
                 );
+
+                if (mWaitingDialog.isShowing()) {
+                    mWaitingDialog.dismiss();
+                }
             }
         });
     }

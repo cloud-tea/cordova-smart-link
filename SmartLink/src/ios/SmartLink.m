@@ -103,7 +103,7 @@
                     } successBlock:^(HFSmartLinkDeviceInfo *dev) {
                         CDVPluginResult* pluginResult = [CDVPluginResult
                                         resultWithStatus: CDVCommandStatus_OK
-                                        messageAsString: [NSString stringWithFormat:@"%@$%@}",dev.mac,dev.ip]
+                                        messageAsString: [NSString stringWithFormat:@"%@$%@",dev.mac,dev.ip]
                                         ];
                         
                         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
