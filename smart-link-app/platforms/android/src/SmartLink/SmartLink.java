@@ -49,10 +49,11 @@ public class SmartLink extends CordovaPlugin implements OnSmartLinkListener {
     private CallbackContext callbackCtx;
 
     // 连接状态消息
-    private  CharSequence TIME_OUT = "Connect timeout...";
-    private  CharSequence MODUE_TOUND = "Module Found: \r\n";
-    private CharSequence COMPLETE = "Completed!";
-    private CharSequence WATING = "Wating..";
+    private  CharSequence TIME_OUT = "连接超时...";
+    private  CharSequence MODUE_TOUND = "模块发现: \r\n";
+    private CharSequence COMPLETE = "连接成功!";
+    private CharSequence WATING = "请等待...";
+    private String CANCEL = "已取消.";
 
 
     @Override
@@ -88,7 +89,7 @@ public class SmartLink extends CordovaPlugin implements OnSmartLinkListener {
                 mSnifferSmartLinker.setOnSmartLinkListener(null);
                 mSnifferSmartLinker.stop();
                 mIsConncting = false;
-                callbackCtx.error("Canceled.");
+                callbackCtx.error(CANCEL);
             }
         });
 
@@ -162,16 +163,14 @@ public class SmartLink extends CordovaPlugin implements OnSmartLinkListener {
 
         Log.w(TAG, "onLinked");
         cordova.getActivity().runOnUiThread(new Runnable() {
-
             @Override
             public void run() {
-                Toast.makeText(
-                        activity,
-                        MODUE_TOUND +  module.getMac() + module.getIp(),
-                        Toast.LENGTH_SHORT).show();
+                Log.w(TAG, "before get MAC info");
+
+                Log.w(TAG, MODUE_TOUND +  module.getMac() + " " + module.getIp());
 
                 callbackCtx.success(
-                    String.format("{status:1, mac: '%@s', ip: '%s'}", module.getMac(), module.getIp())
+                    String.format("{status:1, mac: '%s', ip: '%s'}", module.getMac(), module.getIp())
                 );
             }
         });
@@ -258,14 +257,15 @@ public class SmartLink extends CordovaPlugin implements OnSmartLinkListener {
                 //开始 smartLink
                 mSnifferSmartLinker.start(
                         activity,
-                        obj.getString("wifiName"),
-                        obj.getString("wifiPass")
+                        obj.getString("wifiPass"),
+                        obj.getString("wifiName")
                 );
                 mIsConncting = true;
                 mWaitingDialog.show();
             } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                mIsConncting = false;
             }
         }
     }
