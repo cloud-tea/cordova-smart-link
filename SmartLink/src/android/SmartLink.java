@@ -265,7 +265,7 @@ public class SmartLink extends CordovaPlugin implements OnSmartLinkListener {
                         obj.getString("wifiName")
                 );
                 mIsConncting = true;
-                mWaitingDialog.show();
+                // mWaitingDialog.show();
             } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
